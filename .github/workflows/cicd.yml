@@ -18,27 +18,38 @@ jobs:
           echo "Listing project files:"
           ls -la
           echo "Checking package.json content:"
-          cat package.json
+          cat package.json || echo "⚠️ package.json not found!"
+          cat package-lock.json || echo "⚠️ package-lock.json not found!"
 
       - name: Setup Node.js version
         uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: 'npm'  # Speeds up builds by caching dependencies
+          check-latest: true  # Ensures latest stable version is used
 
       - name: Clean npm cache
         run: npm cache clean --force
 
       - name: Install Dependencies  
-        run: npm install 
+        run: npm install
 
-      # Uncomment this if your app needs a build step
-      # - name: Build the Application
-      #   run: npm run build
+      # Ensure package-lock.json exists before deployment
+      - name: Ensure Lock File Exists
+        run: |
+          if [ ! -f package-lock.json ]; then
+            echo "Generating package-lock.json"
+            npm install --package-lock-only
+          else
+            echo "package-lock.json already exists"
+          fi
+
+      - name: Debug - List Files After npm Install
+        run: ls -la
+
+    
 
       - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'The-Innovators-Introduction'
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }} 
-          package: ${{ github.workspace }}  # Ensures correct deployment folder
+          app-name: 'The-Innovators-
