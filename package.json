@@ -1,16 +1,17 @@
 {
-    "name": "the-Innovators-Introduction",
-    "version": "1.0.0",
-    "description": "A project deployed on Azure",
-    "main": "index.js",
-    "scripts": {
-      "start": "node server.js",
-      "build": "echo 'No build step required'"
-    },
-    "dependencies": {},
-    "devDependencies": {},
-    "engines": {
-      "node": "18.x"
-    }
+  "name": "the-Innovators-Introduction",
+  "version": "1.0.0",
+  "description": "A project deployed on Azure",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "echo 'No build step required'"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": "18.x"
   }
+}
+
   
