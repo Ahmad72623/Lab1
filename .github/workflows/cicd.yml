@@ -7,18 +7,24 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Using Linux for Node.js 18 deployment
+
     steps:
       - name: Checkout Source
-        uses: actions/checkout@v4  # Latest version
+        uses: actions/checkout@v4
 
-      - name: Debug - Check Files
-        run: ls -la  # Debugging step to verify project structure
+      - name: Debug - Check Project Files
+        run: |
+          echo "Listing project files:"
+          ls -la
+          echo "Checking package.json content:"
+          cat package.json
 
       - name: Setup Node.js version
         uses: actions/setup-node@v4
         with:
-          node-version: 18  # Fixed version syntax
+          node-version: 18
+          cache: 'npm'  # Speeds up builds by caching dependencies
 
       - name: Clean npm cache
         run: npm cache clean --force
@@ -26,9 +32,12 @@ jobs:
       - name: Install Dependencies  
         run: npm install 
 
+      # Uncomment this if your app needs a build step
+      # - name: Build the Application
+      #   run: npm run build
+
       - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'The-Innovators-Introduction'
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }} 
-          package: .
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLI
