@@ -1,18 +1,17 @@
-const express = require("express");
-const cors = require("cors");
+const express = require('express');
+const path = require('path');
 const app = express();
 
-// Enable CORS
-app.use(cors());
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Get the port from environment variables (required by Azure)
 const PORT = process.env.PORT || 8080;
 
-app.get("/", (req, res) => {
-  res.send("Hello from The Innovators Introduction!");
+// Basic route to check server
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Listen on the correct port
 app.listen(PORT, () => {
-  console.log(`✅ Server running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
