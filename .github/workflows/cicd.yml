@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js version
         uses: actions/setup-node@v4
         with:
-          node-version: 18  # Fixed version syntax
+          node-version: "18.x"  # Fixed version syntax
 
       - name: Clean npm cache
         run: npm cache clean --force

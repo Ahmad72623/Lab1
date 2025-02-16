@@ -2,15 +2,15 @@
     "name": "the-innovators-introduction",
     "version": "1.0.0",
     "description": "A project deployed on Azure",
-    "main": "server.js",
+    "main": "index.js",
     "scripts": {
-        "start": "node server.js",
-        "build": "echo 'No build step required'"
+      "start": "node server.js",
+      "build": "echo 'No build step required'"
     },
-    "dependencies": {
-        "express": "^4.21.2"
-    },
+    "dependencies": {},
+    "devDependencies": {},
     "engines": {
-        "node": "18.x"
+      "node": "18.x"
     }
-}
+  }
+  
