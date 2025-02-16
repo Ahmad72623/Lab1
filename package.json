@@ -2,10 +2,11 @@
     "name": "the-innovators-introduction",
     "version": "1.0.0",
     "description": "A project deployed on Azure",
-    "main": "index.js",
+    "main": "server.js",
     "scripts": {
         "start": "node server.js",
         "build": "echo 'No build step required'"
+<<<<<<< HEAD
     },
     "dependencies": {
         "express": "^4.21.2"
@@ -13,4 +14,22 @@
     "engines": {
         "node": "18.x"
     }
+=======
+    },
+    "devDependencies": {},
+    "engines": {
+        "node": "18.x"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Ahmad72623/Lab1.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Ahmad72623/Lab1/issues"
+    },
+    "homepage": "https://github.com/Ahmad72623/Lab1#readme"
+>>>>>>> a03c896f2bafb887e4237c513510be7ac53c2ee4
 }
