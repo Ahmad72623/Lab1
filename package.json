@@ -4,13 +4,22 @@
     "description": "A project deployed on Azure",
     "main": "server.js",
     "scripts": {
-      "start": "node server.js",
-      "build": "echo 'No build step required'"
+        "start": "node server.js",
+        "build": "echo 'No build step required'"
     },
-    "dependencies": {},
     "devDependencies": {},
     "engines": {
-      "node": "18.x"
-    }
-  }
-  
+        "node": "18.x"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Ahmad72623/Lab1.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Ahmad72623/Lab1/issues"
+    },
+    "homepage": "https://github.com/Ahmad72623/Lab1#readme"
+}
